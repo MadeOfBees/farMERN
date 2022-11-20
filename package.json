@@ -4,14 +4,18 @@
   "description": "",
   "main": "server/server.js",
   "engines": {
-    "node":"16.17.1"
+    "node": "16.17.1"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "serve -s build",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && react-scripts build",
+    "dev": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +25,8 @@
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "serve": "^14.1.2"
   }
 }
